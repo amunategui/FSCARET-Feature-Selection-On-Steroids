@@ -29,6 +29,7 @@ titanicDummy <- dummyVars("~.",data=titanicDF, fullRank=F)
 titanicDF <- as.data.frame(predict(titanicDummy,titanicDF))
 
 # split data set into train and test portion
+set.seed(1234)
 splitIndex <- createDataPartition(titanicDF$Survived, p = .75, list = FALSE, times = 1)
 trainDF <- titanicDF[ splitIndex,]
 testDF  <- titanicDF[-splitIndex,]
